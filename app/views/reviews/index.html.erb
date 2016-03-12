@@ -1,0 +1,56 @@
+<br><br><br><br><br>
+<div class="container">
+<div class="row">
+
+<div  class="col-md-4" style="float: right">
+  <div class="panel panel-warning" style="width: 70%;padding: 5px;">
+    <div class="panel-heading">
+<h4>Follow me</h4>
+      </div>
+<p>You can follow my Facebook page and twitter account for latest updates.</p>
+<ul class="list-unstyled">
+<li><img src="https://de890d560f9c16061c70a7250d678e3746fc316b.googledrive.com/host/0B--N5ngFnhfhdDJkZlNuSnRuTHM/facebook.png"/><a href="https://www.facebook.com/Aditi.Dinakar.Photography" target="_blank"> Bharath Brahma</a></li>
+<li><img src="https://de890d560f9c16061c70a7250d678e3746fc316b.googledrive.com/host/0B--N5ngFnhfhdDJkZlNuSnRuTHM/twitter.png"/><a href="https://twitter.com/AditiDinakar" target="_blank"> @BharathOkkadu</a></li>
+<li><img src="https://de890d560f9c16061c70a7250d678e3746fc316b.googledrive.com/host/0B--N5ngFnhfhdDJkZlNuSnRuTHM/instagram.png"/><a href="http://www.flickr.com/photos/aditie/" target="_blank"> BharathBrahma</a></li>
+</ul>
+</div>
+  <div class="panel panel-danger" style="width: 70%; padding: 5px;">
+    <div class="panel-heading">
+  <h4>Get in touch</h4>
+      </div>
+<p>For any other information about the available packages and Schedule you can contact me at</p>
+<ul class="list-unstyled">
+<li><i class="glyphicon glyphicon-briefcase"> <a href="mailto:bharathbrahmaphotos@gmail.com">bharathbrahma@gmail.com</a></i></li>
+<li><i class="glyphicon glyphicon-headphones"></i> (+91)895-178-5323</li>
+</ul>
+    </div>
+</div>
+<div class="col-md-8" style="float: right">
+
+
+<table>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <div class="panel panel-info" style="width: 70%;">
+        <div class="panel-heading">
+        <span class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;<%= review.user_email %>
+        <% for i in 1..review.rating %>
+          <img src="<%= asset_path('1457758841_misc_57.png')%>" width="15px" height="15px" style="float: right"/>
+        <%end%>
+        </span>
+        </div>
+        <div class="panel-body">
+         <%= review.comments %>
+          <span  aria-hidden="true" style="float: right"><%= link_to image_tag('trash_recyclebin_empty_closed.png', :width => '20px', :height => '20px'), review, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+  <%= button_to "Create a review!", new_review_path, :method => "get" , :class => 'btn btn-info'%>
+  <br>
+</div>
+  </div></div>

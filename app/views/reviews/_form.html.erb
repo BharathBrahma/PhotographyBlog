@@ -1,0 +1,38 @@
+<br><br>
+<div class="container">
+
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="panel panel-success" style="width: 70%;">
+        <div class="panel-heading">
+            <div class="field">
+              <%= f.label :user_email %><br>
+              <%= f.text_field :user_email , :placeholder => "Email", required: true%>
+            </div>
+            <div class="field">
+              <%= f.label :rating %><br>
+              <%= f.number_field :rating , :placeholder => "Rate the website", required: true, min: 0, max:5 %>
+
+            </div>
+            <div class="field">
+              <%= f.label :comments %><br>
+              <%= f.text_area :comments , :placeholder => "Please enter your comments!", required: true%>
+            </div>
+
+            <div class="actions">
+              <%= f.submit class: 'btn btn-success'%>
+            </div>
+        </div>
+    </div>
+<% end %>
+</div>

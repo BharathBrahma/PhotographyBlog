@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Hello <%= @user.userId%>.. Welcome to the blog!</h2>
+<p>
+  <strong>Userid:</strong>
+  <%= @user.userId %>
+</p>
+
+<p>
+  <strong>User password:</strong>
+  <%= @user.user_password %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @user.age %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @user.phonenumber %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+<h1>Prorammers Enrolled</h1>
+
+
+
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>User password</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phonenumber</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.userId %></td>
+        <td><%= user.user_password %></td>
+        <td><%= user.age %></td>
+        <td><%= user.email %></td>
+        <td><%= user.address %></td>
+        <td><%= user.phonenumber %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Create a new user', new_user_path%>
+<%= button_to 'New User', new_user_path %>
+
